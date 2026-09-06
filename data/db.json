@@ -1,36 +1,469 @@
 {
-  "tenants": [{"id":"dar","name":"DAR Jewellery","plan":"Enterprise"}],
+  "tenants": [
+    {
+      "id": "dar",
+      "name": "DAR Jewellery",
+      "plan": "Enterprise"
+    }
+  ],
   "users": [
-    {"id":"u1","tenantId":"dar","name":"Prasanth","role":"Super Admin","email":"admin@darcrm.local"},
-    {"id":"u2","tenantId":"dar","name":"Karthika","role":"Telecaller","email":"karthika@darcrm.local"},
-    {"id":"u3","tenantId":"dar","name":"Dharani","role":"Telecaller","email":"dharani@darcrm.local"}
+    {
+      "id": "u1",
+      "tenantId": "dar",
+      "name": "Prasanth",
+      "role": "Super Admin",
+      "email": "admin@darcrm.local"
+    },
+    {
+      "id": "u2",
+      "tenantId": "dar",
+      "name": "Karthika",
+      "role": "Telecaller",
+      "email": "karthika@darcrm.local"
+    },
+    {
+      "id": "u3",
+      "tenantId": "dar",
+      "name": "Dharani",
+      "role": "Telecaller",
+      "email": "dharani@darcrm.local"
+    }
   ],
   "customers": [
-    {"id":"c1","tenantId":"dar","name":"Priya","mobile":"9876543210","email":"priya@example.com","branch":"Town Hall","segment":"Antique","ltv":240000,"leadScore":89,"assignedTo":"u2","status":"Hot","source":"Instagram","budget":"₹3L","interest":"Antique Haram"},
-    {"id":"c2","tenantId":"dar","name":"Arun Kumar","mobile":"9840011223","email":"arun@example.com","branch":"Peelamedu","segment":"Diamond","ltv":125000,"leadScore":72,"assignedTo":"u3","status":"Warm","source":"Website","budget":"₹2L","interest":"Diamond Ring"},
-    {"id":"c3","tenantId":"dar","name":"Meena","mobile":"9789012345","email":"meena@example.com","branch":"Erode","segment":"Gold","ltv":86000,"leadScore":62,"assignedTo":"u2","status":"Follow-up","source":"WhatsApp","budget":"₹1L","interest":"Gold Chain"}
+    {
+      "id": "c1",
+      "tenantId": "dar",
+      "name": "Priya",
+      "mobile": "9876543210",
+      "email": "priya@example.com",
+      "branch": "Town Hall",
+      "segment": "Antique",
+      "ltv": 240000,
+      "leadScore": 89,
+      "assignedTo": "u2",
+      "status": "Hot",
+      "source": "Instagram",
+      "budget": "₹3L",
+      "interest": "Antique Haram"
+    },
+    {
+      "id": "c2",
+      "tenantId": "dar",
+      "name": "Arun Kumar",
+      "mobile": "9840011223",
+      "email": "arun@example.com",
+      "branch": "Peelamedu",
+      "segment": "Diamond",
+      "ltv": 125000,
+      "leadScore": 72,
+      "assignedTo": "u3",
+      "status": "Warm",
+      "source": "Website",
+      "budget": "₹2L",
+      "interest": "Diamond Ring"
+    },
+    {
+      "id": "c3",
+      "tenantId": "dar",
+      "name": "Meena",
+      "mobile": "9789012345",
+      "email": "meena@example.com",
+      "branch": "Erode",
+      "segment": "Gold",
+      "ltv": 86000,
+      "leadScore": 62,
+      "assignedTo": "u2",
+      "status": "Follow-up",
+      "source": "WhatsApp",
+      "budget": "₹1L",
+      "interest": "Gold Chain"
+    }
   ],
   "leads": [
-    {"id":"l1","tenantId":"dar","customerId":"c1","source":"Instagram Ad DM","stage":"Appointment","value":300000,"assignedTo":"u2","nextFollowup":"2026-09-07T10:30:00+05:30","createdAt":"2026-09-06T11:00:00+05:30"},
-    {"id":"l2","tenantId":"dar","customerId":"c2","source":"Abandoned Checkout","stage":"Qualified","value":200000,"assignedTo":"u3","nextFollowup":"2026-09-07T12:00:00+05:30","createdAt":"2026-09-06T12:15:00+05:30"},
-    {"id":"l3","tenantId":"dar","customerId":"c3","source":"WhatsApp","stage":"Follow-up","value":100000,"assignedTo":"u2","nextFollowup":"2026-09-08T15:00:00+05:30","createdAt":"2026-09-05T16:20:00+05:30"}
+    {
+      "id": "l1",
+      "tenantId": "dar",
+      "customerId": "c1",
+      "source": "Instagram Ad DM",
+      "stage": "Appointment",
+      "value": 300000,
+      "assignedTo": "u2",
+      "nextFollowup": "2026-09-07T10:30:00+05:30",
+      "createdAt": "2026-09-06T11:00:00+05:30"
+    },
+    {
+      "id": "l2",
+      "tenantId": "dar",
+      "customerId": "c2",
+      "source": "Abandoned Checkout",
+      "stage": "Qualified",
+      "value": 200000,
+      "assignedTo": "u3",
+      "nextFollowup": "2026-09-07T12:00:00+05:30",
+      "createdAt": "2026-09-06T12:15:00+05:30"
+    },
+    {
+      "id": "l3",
+      "tenantId": "dar",
+      "customerId": "c3",
+      "source": "WhatsApp",
+      "stage": "Follow-up",
+      "value": 100000,
+      "assignedTo": "u2",
+      "nextFollowup": "2026-09-08T15:00:00+05:30",
+      "createdAt": "2026-09-05T16:20:00+05:30"
+    }
   ],
   "tasks": [
-    {"id":"t1","tenantId":"dar","customerId":"c1","title":"Confirm video call","type":"Call","due":"2026-09-07T10:30:00+05:30","status":"Open","owner":"u2"},
-    {"id":"t2","tenantId":"dar","customerId":"c2","title":"Send shortlisted rings","type":"WhatsApp","due":"2026-09-07T12:00:00+05:30","status":"Open","owner":"u3"},
-    {"id":"t3","tenantId":"dar","customerId":"c3","title":"Purchase follow-up","type":"Call","due":"2026-09-08T15:00:00+05:30","status":"Open","owner":"u2"}
+    {
+      "id": "t1",
+      "tenantId": "dar",
+      "customerId": "c1",
+      "title": "Confirm video call",
+      "type": "Call",
+      "due": "2026-09-07T10:30:00+05:30",
+      "status": "Open",
+      "owner": "u2"
+    },
+    {
+      "id": "t2",
+      "tenantId": "dar",
+      "customerId": "c2",
+      "title": "Send shortlisted rings",
+      "type": "WhatsApp",
+      "due": "2026-09-07T12:00:00+05:30",
+      "status": "Open",
+      "owner": "u3"
+    },
+    {
+      "id": "t3",
+      "tenantId": "dar",
+      "customerId": "c3",
+      "title": "Purchase follow-up",
+      "type": "Call",
+      "due": "2026-09-08T15:00:00+05:30",
+      "status": "Open",
+      "owner": "u2"
+    }
   ],
   "activities": [
-    {"id":"a1","tenantId":"dar","customerId":"c1","type":"Instagram","text":"Instagram advertisement click","at":"2026-09-06T10:05:00+05:30"},
-    {"id":"a2","tenantId":"dar","customerId":"c1","type":"WhatsApp","text":"WhatsApp enquiry received","at":"2026-09-06T10:07:00+05:30"},
-    {"id":"a3","tenantId":"dar","customerId":"c1","type":"Website","text":"Viewed Antique Haram collection","at":"2026-09-06T11:30:00+05:30"},
-    {"id":"a4","tenantId":"dar","customerId":"c1","type":"Wishlist","text":"Added product to wishlist","at":"2026-09-06T11:35:00+05:30"},
-    {"id":"a5","tenantId":"dar","customerId":"c1","type":"Call","text":"Telecaller contacted customer","at":"2026-09-06T12:15:00+05:30"},
-    {"id":"a6","tenantId":"dar","customerId":"c1","type":"Appointment","text":"Video call booked","at":"2026-09-06T14:00:00+05:30"}
+    {
+      "id": "a1",
+      "tenantId": "dar",
+      "customerId": "c1",
+      "type": "Instagram",
+      "text": "Instagram advertisement click",
+      "at": "2026-09-06T10:05:00+05:30"
+    },
+    {
+      "id": "a2",
+      "tenantId": "dar",
+      "customerId": "c1",
+      "type": "WhatsApp",
+      "text": "WhatsApp enquiry received",
+      "at": "2026-09-06T10:07:00+05:30"
+    },
+    {
+      "id": "a3",
+      "tenantId": "dar",
+      "customerId": "c1",
+      "type": "Website",
+      "text": "Viewed Antique Haram collection",
+      "at": "2026-09-06T11:30:00+05:30"
+    },
+    {
+      "id": "a4",
+      "tenantId": "dar",
+      "customerId": "c1",
+      "type": "Wishlist",
+      "text": "Added product to wishlist",
+      "at": "2026-09-06T11:35:00+05:30"
+    },
+    {
+      "id": "a5",
+      "tenantId": "dar",
+      "customerId": "c1",
+      "type": "Call",
+      "text": "Telecaller contacted customer",
+      "at": "2026-09-06T12:15:00+05:30"
+    },
+    {
+      "id": "a6",
+      "tenantId": "dar",
+      "customerId": "c1",
+      "type": "Appointment",
+      "text": "Video call booked",
+      "at": "2026-09-06T14:00:00+05:30"
+    }
   ],
   "messages": [
-    {"id":"m1","tenantId":"dar","customerId":"c1","channel":"WhatsApp","direction":"in","text":"Need antique haram around 3 lakh","at":"2026-09-06T10:07:00+05:30"},
-    {"id":"m2","tenantId":"dar","customerId":"c1","channel":"WhatsApp","direction":"out","text":"Sure, we can arrange a video call and show available designs.","at":"2026-09-06T10:10:00+05:30"},
-    {"id":"m3","tenantId":"dar","customerId":"c2","channel":"Website","direction":"in","text":"Customer left checkout before payment","at":"2026-09-06T12:15:00+05:30"}
-  ]
+    {
+      "id": "m1",
+      "tenantId": "dar",
+      "customerId": "c1",
+      "channel": "WhatsApp",
+      "direction": "in",
+      "text": "Need antique haram around 3 lakh",
+      "at": "2026-09-06T10:07:00+05:30"
+    },
+    {
+      "id": "m2",
+      "tenantId": "dar",
+      "customerId": "c1",
+      "channel": "WhatsApp",
+      "direction": "out",
+      "text": "Sure, we can arrange a video call and show available designs.",
+      "at": "2026-09-06T10:10:00+05:30"
+    },
+    {
+      "id": "m3",
+      "tenantId": "dar",
+      "customerId": "c2",
+      "channel": "Website",
+      "direction": "in",
+      "text": "Customer left checkout before payment",
+      "at": "2026-09-06T12:15:00+05:30"
+    }
+  ],
+  "leadSources": [
+    "Customer Enquiry Website Call",
+    "Search Data Call",
+    "Registered Customers Call",
+    "Purchase Plan Subscriber Thanks Call",
+    "Purchase Plan Payment Abandoned Call",
+    "Abandoned Checkout Call",
+    "Wishlist Call",
+    "Wedding & Birthday Call",
+    "Thank You Call / Feedback Calls",
+    "Customer Enquiries Return Call",
+    "Incoming Calls (IVR Exotel)",
+    "Incoming Calls (IVR Exotel Follow-up)",
+    "Dormant Customer Call",
+    "Purchase Plan Instalment Reminder",
+    "Order Mela Follow-up",
+    "Purchase Plan Redemption Call",
+    "Video Call – Online Customer",
+    "Customised Order Enquiry Form",
+    "Expo Enquiry",
+    "Door to Door Enquiry",
+    "Ready to Collect Order",
+    "Repair Product Collection",
+    "Service Call",
+    "Instagram DM",
+    "Instagram Comment",
+    "Instagram Ad DM",
+    "Facebook DM",
+    "Facebook Comment",
+    "WhatsApp Lead Enquiry Ad",
+    "WhatsApp Meta Ad DM",
+    "WhatsApp DM / Call",
+    "Tidio Chatbot Enquiry",
+    "Wacto Web Tracking / Chat",
+    "Google Review",
+    "YouTube Comment",
+    "Pinterest",
+    "Reddit",
+    "Quora",
+    "LinkedIn",
+    "Email Marketing",
+    "Bulk SMS",
+    "Bulk WhatsApp",
+    "App Registration",
+    "Website Product View",
+    "Add to Cart",
+    "Checkout Abandoned",
+    "Store Walk-in",
+    "Referral",
+    "Google Ads",
+    "Meta Lead Form"
+  ],
+  "integrations": [
+    {
+      "id": "whatsapp",
+      "name": "WhatsApp Business API",
+      "category": "Messaging",
+      "status": "Not Connected",
+      "description": "Shared inbox, templates, broadcasts and customer conversations.",
+      "env": [
+        "WHATSAPP_ACCESS_TOKEN",
+        "WHATSAPP_PHONE_NUMBER_ID",
+        "WHATSAPP_VERIFY_TOKEN"
+      ]
+    },
+    {
+      "id": "meta",
+      "name": "Meta – Facebook & Instagram",
+      "category": "Social",
+      "status": "Not Connected",
+      "description": "Lead forms, Instagram/Facebook messages, ad source attribution.",
+      "env": [
+        "META_APP_ID",
+        "META_APP_SECRET",
+        "META_PAGE_TOKEN"
+      ]
+    },
+    {
+      "id": "exotel",
+      "name": "Exotel",
+      "category": "Calling",
+      "status": "Not Connected",
+      "description": "Incoming call logs, recordings, missed calls and dispositions.",
+      "env": [
+        "EXOTEL_SID",
+        "EXOTEL_API_KEY",
+        "EXOTEL_API_TOKEN"
+      ]
+    },
+    {
+      "id": "callyzer",
+      "name": "Callyzer",
+      "category": "Calling",
+      "status": "Not Connected",
+      "description": "Mobile call tracking and call activity sync.",
+      "env": [
+        "CALLYZER_API_KEY"
+      ]
+    },
+    {
+      "id": "website",
+      "name": "DAR Website / Node.js",
+      "category": "Website",
+      "status": "Ready",
+      "description": "Customer events, wishlist, cart, checkout and purchase webhooks.",
+      "env": [
+        "CRM_WEBHOOK_SECRET"
+      ]
+    },
+    {
+      "id": "jbs",
+      "name": "JBS / ERP",
+      "category": "ERP",
+      "status": "Not Connected",
+      "description": "Customer, order, invoice, scheme and billing synchronization.",
+      "env": [
+        "JBS_API_URL",
+        "JBS_API_KEY"
+      ]
+    },
+    {
+      "id": "tidio",
+      "name": "Tidio Chatbot",
+      "category": "Chat",
+      "status": "Not Connected",
+      "description": "Website chatbot enquiries into Customer 360.",
+      "env": [
+        "TIDIO_API_KEY"
+      ]
+    },
+    {
+      "id": "email",
+      "name": "Email / SMTP",
+      "category": "Email",
+      "status": "Not Connected",
+      "description": "Email conversations and campaign activity.",
+      "env": [
+        "SMTP_HOST",
+        "SMTP_USER",
+        "SMTP_PASSWORD"
+      ]
+    },
+    {
+      "id": "sms",
+      "name": "SMS Provider",
+      "category": "Messaging",
+      "status": "Not Connected",
+      "description": "SMS campaigns, delivery status and source attribution.",
+      "env": [
+        "SMS_API_URL",
+        "SMS_API_KEY"
+      ]
+    },
+    {
+      "id": "unicommerce",
+      "name": "Unicommerce",
+      "category": "Commerce",
+      "status": "Not Connected",
+      "description": "Order, inventory, shipment and tracking sync.",
+      "env": [
+        "UNICOMMERCE_API_KEY"
+      ]
+    },
+    {
+      "id": "ga4",
+      "name": "Google Analytics / Ads",
+      "category": "Analytics",
+      "status": "Not Connected",
+      "description": "Campaign source, website conversion and advertising attribution.",
+      "env": [
+        "GA4_PROPERTY_ID",
+        "GOOGLE_ADS_CUSTOMER_ID"
+      ]
+    },
+    {
+      "id": "app",
+      "name": "DAR Mobile App",
+      "category": "App",
+      "status": "Ready",
+      "description": "App registration and customer activity through CRM webhook.",
+      "env": [
+        "CRM_WEBHOOK_SECRET"
+      ]
+    }
+  ],
+  "calls": [
+    {
+      "id": "call1",
+      "customerId": "c1",
+      "direction": "Outgoing",
+      "provider": "Manual",
+      "duration": 185,
+      "status": "Connected",
+      "disposition": "Appointment Fixed",
+      "owner": "u2",
+      "at": "2026-09-06T12:15:00+05:30"
+    },
+    {
+      "id": "call2",
+      "customerId": "c2",
+      "direction": "Outgoing",
+      "provider": "Manual",
+      "duration": 92,
+      "status": "Connected",
+      "disposition": "Interested",
+      "owner": "u3",
+      "at": "2026-09-06T15:20:00+05:30"
+    }
+  ],
+  "campaigns": [
+    {
+      "id": "cmp1",
+      "name": "Antique Mela – Meta",
+      "channel": "Meta",
+      "spend": 50000,
+      "leads": 120,
+      "qualified": 42,
+      "appointments": 16,
+      "sales": 6,
+      "revenue": 1800000,
+      "status": "Active"
+    },
+    {
+      "id": "cmp2",
+      "name": "Bulk WhatsApp – Existing Customers",
+      "channel": "WhatsApp",
+      "spend": 12000,
+      "leads": 65,
+      "qualified": 30,
+      "appointments": 12,
+      "sales": 5,
+      "revenue": 950000,
+      "status": "Active"
+    }
+  ],
+  "settings": {
+    "companyName": "DAR Jewellery",
+    "timezone": "Asia/Kolkata",
+    "currency": "INR",
+    "webhookSecretConfigured": false
+  }
 }

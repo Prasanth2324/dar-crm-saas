@@ -1,111 +1,61 @@
-# DAR CRM SaaS – Customer 360 MVP
+# DAR CRM SaaS – Tomorrow Ready Package
 
-A zero-dependency Node.js starter CRM you can run locally and demo immediately.
+This package upgrades the live MVP with:
+- Full Lead Source Master (50 sources)
+- Real Integrations Center with environment-variable setup guides
+- Customer 360, Leads, Pipeline, Tasks, Calls, Campaigns, Reports
+- Lead stage updates
+- Task completion
+- Manual call logging
+- Backup export
+- Secure webhook secret support
+- Optional CRM password login using Render environment variable
+- Mobile responsive UI
 
-## Run
+## Deploy over your current Render service
 
-1. Install Node.js 18 or newer.
-2. Open this folder in Terminal / Command Prompt.
-3. Run:
+1. Replace the files in your local GitHub repo `E:\GitHub\dar-crm-saas` with this package.
+2. GitHub Desktop → commit → Push origin.
+3. Render auto-deploys.
 
-   node server.js
+## IMPORTANT – Render Environment
 
-4. Open Chrome:
+In Render → your web service → Environment, add:
 
-   http://localhost:3000
+`CRM_PASSWORD` = choose a strong password for staff login  
+`CRM_WEBHOOK_SECRET` = choose a separate long random secret for website/app webhooks
 
-No npm install is required.
+After saving, redeploy.
 
-## Included
+## External integrations
 
-- Responsive dashboard
-- Customer 360 profile and activity timeline
-- Leads list
-- Sales pipeline / Kanban view
-- Tasks and follow-ups
-- Unified inbox demo
-- Global customer search
-- New lead creation
-- Multi-tenant-ready data model (`tenantId`)
-- REST-style API endpoints
-- Generic webhook endpoint for website/app/ERP integrations
-- Mobile navigation
+The Integrations screen is fully prepared, but WhatsApp, Meta, Exotel, Callyzer, JBS, Tidio, SMTP, SMS, Unicommerce and Google services cannot become truly connected until you add their real credentials/API access in Render Environment.
 
-## API endpoints
+## Website / App webhook
 
-GET /api/dashboard
-GET /api/customers
-GET /api/customers/:id
-POST /api/customers
-GET /api/leads
-POST /api/leads
-GET /api/tasks
-POST /api/tasks
-GET /api/messages
-POST /api/activities
-POST /api/webhooks/customer-event
+POST to:
 
-## Example external event
+`https://YOUR-SERVICE.onrender.com/api/webhooks/customer-event`
 
-POST http://localhost:3000/api/webhooks/customer-event
-Content-Type: application/json
+Header:
+`X-CRM-Secret: <CRM_WEBHOOK_SECRET>`
 
+Example body:
+
+```json
 {
-  "name": "Priya",
-  "mobile": "9876543210",
-  "source": "Website",
-  "type": "Abandoned Checkout",
-  "text": "Customer abandoned checkout for Antique Haram",
-  "interest": "Antique Haram",
-  "budget": "₹3L"
+  "name":"Customer Name",
+  "mobile":"9876543210",
+  "email":"customer@example.com",
+  "source":"Abandoned Checkout",
+  "type":"Checkout Abandoned",
+  "text":"Customer abandoned checkout",
+  "interest":"Antique Haram",
+  "value":300000,
+  "createLead":true
 }
+```
 
-The CRM matches customers by mobile/email and adds the event to the existing Customer 360 timeline.
+## Critical production note
 
-## Production upgrade path
-
-This MVP stores data in `data/db.json` to make the demo easy. For production, move to:
-
-- PostgreSQL
-- NestJS or structured Express backend
-- Redis queues
-- JWT / SSO authentication
-- Role-based permissions
-- AWS S3-compatible storage
-- WhatsApp Cloud API
-- Meta Webhooks
-- Exotel/Callyzer integrations
-- JBS/ERP API sync
-- Website event SDK
-- Background job workers
-- Audit logs
-- Tenant-level billing and subscription management
-
-## Suggested next modules
-
-1. Login, users, roles, branch permissions
-2. Real WhatsApp shared inbox
-3. Exotel incoming/outgoing calls and recordings
-4. Meta Instagram/Facebook lead + DM integration
-5. Website visitor/product/wishlist/cart events
-6. JBS/ERP customers, invoices, schemes and orders
-7. Service/repair tickets
-8. Campaign attribution and ROAS
-9. Automation builder
-10. AI summaries and lead scoring
-
-## Put it online (easy path)
-
-### Render
-1. Create a new Git repository and upload this folder.
-2. In Render choose **New > Blueprint** and connect the repository.
-3. Render reads `render.yaml` and starts the app with `node server.js`.
-4. Open the public URL Render gives you.
-
-### Railway / similar Node hosts
-- Create a new Node service from this folder/repository.
-- Start command: `node server.js`
-- The app automatically uses the host-provided `PORT` environment variable.
-
-### Important MVP note
-This demo stores data in `data/db.json`. On many cloud platforms the local filesystem can be temporary, so production should move CRM data to PostgreSQL before real customer usage.
+This package still uses `data/db.json`. Render free services do **not** provide persistent disk storage. Use this tomorrow for demo/pilot only. Before entering important real customer data, migrate to PostgreSQL. Use Reports → Backup frequently during the pilot.

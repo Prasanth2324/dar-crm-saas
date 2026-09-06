@@ -3,9 +3,6 @@ services:
     name: dar-crm-saas
     runtime: node
     plan: free
-    buildCommand: ""
+    buildCommand: npm install
     startCommand: node server.js
-    healthCheckPath: /
-    envVars:
-      - key: NODE_VERSION
-        value: 20
+    autoDeploy: true
