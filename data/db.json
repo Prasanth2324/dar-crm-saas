@@ -43,7 +43,7 @@
       "assignedTo": "u2",
       "status": "Hot",
       "source": "Instagram",
-      "budget": "₹3L",
+      "budget": "\u20b93L",
       "interest": "Antique Haram"
     },
     {
@@ -59,7 +59,7 @@
       "assignedTo": "u3",
       "status": "Warm",
       "source": "Website",
-      "budget": "₹2L",
+      "budget": "\u20b92L",
       "interest": "Diamond Ring"
     },
     {
@@ -75,7 +75,7 @@
       "assignedTo": "u2",
       "status": "Follow-up",
       "source": "WhatsApp",
-      "budget": "₹1L",
+      "budget": "\u20b91L",
       "interest": "Gold Chain"
     }
   ],
@@ -242,7 +242,7 @@
     "Purchase Plan Instalment Reminder",
     "Order Mela Follow-up",
     "Purchase Plan Redemption Call",
-    "Video Call – Online Customer",
+    "Video Call \u2013 Online Customer",
     "Customised Order Enquiry Form",
     "Expo Enquiry",
     "Door to Door Enquiry",
@@ -275,7 +275,20 @@
     "Store Walk-in",
     "Referral",
     "Google Ads",
-    "Meta Lead Form"
+    "Meta Lead Form",
+    "Exotel Missed",
+    "Exotel Connected",
+    "WATI WhatsApp",
+    "Tidio Chatbot",
+    "Meta Lead Ads",
+    "Instagram/Facebook DM",
+    "WhatsApp Meta Ad / DM",
+    "Website Add to Cart",
+    "Website Abandoned Checkout",
+    "Website Wishlist",
+    "Website Enquiry",
+    "Mobile App",
+    "Generic Webhook"
   ],
   "integrations": [
     {
@@ -283,77 +296,98 @@
       "name": "WhatsApp Business API",
       "category": "Messaging",
       "status": "Not Connected",
-      "description": "Shared inbox, templates, broadcasts and customer conversations.",
+      "description": "Meta WhatsApp Cloud API inbound messages, conversations and lead creation.",
       "env": [
         "WHATSAPP_ACCESS_TOKEN",
         "WHATSAPP_PHONE_NUMBER_ID",
         "WHATSAPP_VERIFY_TOKEN"
-      ]
+      ],
+      "webhook": "/api/webhooks/whatsapp"
+    },
+    {
+      "id": "wati",
+      "name": "WATI WhatsApp",
+      "category": "Messaging",
+      "status": "Not Connected",
+      "description": "WATI inbound/outbound WhatsApp message webhooks into Unified Inbox and Customer 360.",
+      "env": [
+        "WATI_API_TOKEN"
+      ],
+      "webhook": "/api/webhooks/wati"
     },
     {
       "id": "meta",
-      "name": "Meta – Facebook & Instagram",
+      "name": "Meta \u2013 Facebook & Instagram",
       "category": "Social",
       "status": "Not Connected",
-      "description": "Lead forms, Instagram/Facebook messages, ad source attribution.",
+      "description": "Facebook/Instagram messages, WhatsApp events and lead form webhook ingestion.",
       "env": [
         "META_APP_ID",
         "META_APP_SECRET",
-        "META_PAGE_TOKEN"
-      ]
+        "META_PAGE_TOKEN",
+        "META_VERIFY_TOKEN"
+      ],
+      "webhook": "/api/webhooks/meta"
     },
     {
       "id": "exotel",
       "name": "Exotel",
       "category": "Calling",
       "status": "Not Connected",
-      "description": "Incoming call logs, recordings, missed calls and dispositions.",
+      "description": "Auto-sync latest calls from Exotel API plus optional live callback ingestion.",
       "env": [
         "EXOTEL_SID",
         "EXOTEL_API_KEY",
         "EXOTEL_API_TOKEN"
-      ]
+      ],
+      "webhook": "/api/webhooks/exotel"
     },
     {
       "id": "callyzer",
       "name": "Callyzer",
       "category": "Calling",
       "status": "Not Connected",
-      "description": "Mobile call tracking and call activity sync.",
+      "description": "Receive mobile call tracking events through a secure CRM webhook.",
       "env": [
-        "CALLYZER_API_KEY"
-      ]
+        "CALLYZER_API_KEY",
+        "CRM_WEBHOOK_SECRET"
+      ],
+      "webhook": "/api/webhooks/callyzer"
     },
     {
       "id": "website",
       "name": "DAR Website / Node.js",
       "category": "Website",
       "status": "Ready",
-      "description": "Customer events, wishlist, cart, checkout and purchase webhooks.",
+      "description": "Website events: product view, wishlist, add-to-cart, checkout, abandoned checkout, form enquiry and purchase.",
       "env": [
         "CRM_WEBHOOK_SECRET"
-      ]
+      ],
+      "webhook": "/api/webhooks/website"
     },
     {
       "id": "jbs",
       "name": "JBS / ERP",
       "category": "ERP",
       "status": "Not Connected",
-      "description": "Customer, order, invoice, scheme and billing synchronization.",
+      "description": "ERP customer/order/invoice/scheme/billing events through generic secure webhook or future API sync.",
       "env": [
         "JBS_API_URL",
-        "JBS_API_KEY"
-      ]
+        "JBS_API_KEY",
+        "CRM_WEBHOOK_SECRET"
+      ],
+      "webhook": "/api/webhooks/generic"
     },
     {
       "id": "tidio",
       "name": "Tidio Chatbot",
       "category": "Chat",
       "status": "Not Connected",
-      "description": "Website chatbot enquiries into Customer 360.",
+      "description": "Live Tidio contact, chat, conversation and ticket events into Customer 360.",
       "env": [
         "TIDIO_API_KEY"
-      ]
+      ],
+      "webhook": "/api/webhooks/tidio"
     },
     {
       "id": "email",
@@ -383,10 +417,12 @@
       "name": "Unicommerce",
       "category": "Commerce",
       "status": "Not Connected",
-      "description": "Order, inventory, shipment and tracking sync.",
+      "description": "Order, inventory, shipment and tracking events through generic secure webhook.",
       "env": [
-        "UNICOMMERCE_API_KEY"
-      ]
+        "UNICOMMERCE_API_KEY",
+        "CRM_WEBHOOK_SECRET"
+      ],
+      "webhook": "/api/webhooks/generic"
     },
     {
       "id": "ga4",
@@ -404,10 +440,22 @@
       "name": "DAR Mobile App",
       "category": "App",
       "status": "Ready",
-      "description": "App registration and customer activity through CRM webhook.",
+      "description": "Mobile app registration, enquiry and activity events through secure webhook.",
       "env": [
         "CRM_WEBHOOK_SECRET"
-      ]
+      ],
+      "webhook": "/api/webhooks/app"
+    },
+    {
+      "id": "generic",
+      "name": "Any Other Bot / CRM / Tool",
+      "category": "Universal Webhook",
+      "status": "Ready",
+      "description": "Connect any tool that can POST JSON. Send mobile/email/name/type/text/source/createLead/value.",
+      "env": [
+        "CRM_WEBHOOK_SECRET"
+      ],
+      "webhook": "/api/webhooks/generic"
     }
   ],
   "calls": [
@@ -437,7 +485,7 @@
   "campaigns": [
     {
       "id": "cmp1",
-      "name": "Antique Mela – Meta",
+      "name": "Antique Mela \u2013 Meta",
       "channel": "Meta",
       "spend": 50000,
       "leads": 120,
@@ -449,7 +497,7 @@
     },
     {
       "id": "cmp2",
-      "name": "Bulk WhatsApp – Existing Customers",
+      "name": "Bulk WhatsApp \u2013 Existing Customers",
       "channel": "WhatsApp",
       "spend": 12000,
       "leads": 65,

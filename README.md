@@ -59,3 +59,6 @@ Example body:
 ## Critical production note
 
 This package still uses `data/db.json`. Render free services do **not** provide persistent disk storage. Use this tomorrow for demo/pilot only. Before entering important real customer data, migrate to PostgreSQL. Use Reports → Backup frequently during the pilot.
+
+## Live omnichannel connectors
+This release adds Exotel API call sync and webhook adapters for WATI, Tidio, Meta/WhatsApp, website/app events, Callyzer/ERP and any JSON-capable external tool. See `INTEGRATION_GUIDE.md`.
