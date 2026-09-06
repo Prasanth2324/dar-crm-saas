@@ -1,0 +1,36 @@
+{
+  "tenants": [{"id":"dar","name":"DAR Jewellery","plan":"Enterprise"}],
+  "users": [
+    {"id":"u1","tenantId":"dar","name":"Prasanth","role":"Super Admin","email":"admin@darcrm.local"},
+    {"id":"u2","tenantId":"dar","name":"Karthika","role":"Telecaller","email":"karthika@darcrm.local"},
+    {"id":"u3","tenantId":"dar","name":"Dharani","role":"Telecaller","email":"dharani@darcrm.local"}
+  ],
+  "customers": [
+    {"id":"c1","tenantId":"dar","name":"Priya","mobile":"9876543210","email":"priya@example.com","branch":"Town Hall","segment":"Antique","ltv":240000,"leadScore":89,"assignedTo":"u2","status":"Hot","source":"Instagram","budget":"₹3L","interest":"Antique Haram"},
+    {"id":"c2","tenantId":"dar","name":"Arun Kumar","mobile":"9840011223","email":"arun@example.com","branch":"Peelamedu","segment":"Diamond","ltv":125000,"leadScore":72,"assignedTo":"u3","status":"Warm","source":"Website","budget":"₹2L","interest":"Diamond Ring"},
+    {"id":"c3","tenantId":"dar","name":"Meena","mobile":"9789012345","email":"meena@example.com","branch":"Erode","segment":"Gold","ltv":86000,"leadScore":62,"assignedTo":"u2","status":"Follow-up","source":"WhatsApp","budget":"₹1L","interest":"Gold Chain"}
+  ],
+  "leads": [
+    {"id":"l1","tenantId":"dar","customerId":"c1","source":"Instagram Ad DM","stage":"Appointment","value":300000,"assignedTo":"u2","nextFollowup":"2026-09-07T10:30:00+05:30","createdAt":"2026-09-06T11:00:00+05:30"},
+    {"id":"l2","tenantId":"dar","customerId":"c2","source":"Abandoned Checkout","stage":"Qualified","value":200000,"assignedTo":"u3","nextFollowup":"2026-09-07T12:00:00+05:30","createdAt":"2026-09-06T12:15:00+05:30"},
+    {"id":"l3","tenantId":"dar","customerId":"c3","source":"WhatsApp","stage":"Follow-up","value":100000,"assignedTo":"u2","nextFollowup":"2026-09-08T15:00:00+05:30","createdAt":"2026-09-05T16:20:00+05:30"}
+  ],
+  "tasks": [
+    {"id":"t1","tenantId":"dar","customerId":"c1","title":"Confirm video call","type":"Call","due":"2026-09-07T10:30:00+05:30","status":"Open","owner":"u2"},
+    {"id":"t2","tenantId":"dar","customerId":"c2","title":"Send shortlisted rings","type":"WhatsApp","due":"2026-09-07T12:00:00+05:30","status":"Open","owner":"u3"},
+    {"id":"t3","tenantId":"dar","customerId":"c3","title":"Purchase follow-up","type":"Call","due":"2026-09-08T15:00:00+05:30","status":"Open","owner":"u2"}
+  ],
+  "activities": [
+    {"id":"a1","tenantId":"dar","customerId":"c1","type":"Instagram","text":"Instagram advertisement click","at":"2026-09-06T10:05:00+05:30"},
+    {"id":"a2","tenantId":"dar","customerId":"c1","type":"WhatsApp","text":"WhatsApp enquiry received","at":"2026-09-06T10:07:00+05:30"},
+    {"id":"a3","tenantId":"dar","customerId":"c1","type":"Website","text":"Viewed Antique Haram collection","at":"2026-09-06T11:30:00+05:30"},
+    {"id":"a4","tenantId":"dar","customerId":"c1","type":"Wishlist","text":"Added product to wishlist","at":"2026-09-06T11:35:00+05:30"},
+    {"id":"a5","tenantId":"dar","customerId":"c1","type":"Call","text":"Telecaller contacted customer","at":"2026-09-06T12:15:00+05:30"},
+    {"id":"a6","tenantId":"dar","customerId":"c1","type":"Appointment","text":"Video call booked","at":"2026-09-06T14:00:00+05:30"}
+  ],
+  "messages": [
+    {"id":"m1","tenantId":"dar","customerId":"c1","channel":"WhatsApp","direction":"in","text":"Need antique haram around 3 lakh","at":"2026-09-06T10:07:00+05:30"},
+    {"id":"m2","tenantId":"dar","customerId":"c1","channel":"WhatsApp","direction":"out","text":"Sure, we can arrange a video call and show available designs.","at":"2026-09-06T10:10:00+05:30"},
+    {"id":"m3","tenantId":"dar","customerId":"c2","channel":"Website","direction":"in","text":"Customer left checkout before payment","at":"2026-09-06T12:15:00+05:30"}
+  ]
+}

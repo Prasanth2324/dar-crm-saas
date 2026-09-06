@@ -1,0 +1,17 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DAR CRM</title><link rel="stylesheet" href="/styles.css"></head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="logo">D</div><div><b>DAR CRM</b><small>Customer 360</small></div></div>
+  <nav id="nav"></nav>
+  <div class="user"><div class="avatar">P</div><div><b>Prasanth</b><small>Super Admin</small></div></div>
+</aside>
+<main>
+<header><button class="mobileMenu" onclick="toggleSidebar()">☰</button><div class="search"><span>⌕</span><input id="globalSearch" placeholder="Search customer, mobile, email..." oninput="globalSearch(this.value)"></div><div class="headerActions"><button class="iconBtn">🔔</button><button class="primary" onclick="openAddLead()">+ New Lead</button></div></header>
+<section id="view" class="content"></section>
+</main>
+</div>
+<div class="bottomNav" id="bottomNav"></div>
+<div class="modalWrap" id="modalWrap"><div class="modal" id="modal"></div></div>
+<script src="/app.js"></script>
+</body></html>
