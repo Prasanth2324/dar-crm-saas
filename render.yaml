@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: dar-crm-saas
+    runtime: node
+    plan: free
+    buildCommand: ""
+    startCommand: node server.js
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: 20
